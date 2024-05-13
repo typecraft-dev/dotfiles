@@ -1,6 +1,5 @@
 #! /bin/bash
 
-mkdir -p ~/.config/
 
 create_symlinks() {
     # Get the directory in which this script lives.
@@ -17,7 +16,12 @@ create_symlinks() {
         ln -s $script_dir/$name ~/$name
     done
 
-    ln -s $script_dir/nvim ~/.config/
+    if [ ! -d ~/.config/nvim ]
+    then
+      mkdir -p ~/.config/
+      ln -s $script_dir/nvim ~/.config/
+    fi
+
 }
 
 create_symlinks
