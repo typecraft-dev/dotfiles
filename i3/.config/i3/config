@@ -15,9 +15,9 @@ set $mod Mod4
 # set $mod Mod1
 
 exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/backgrounds/nice-blue-background.png
-exec --no-startup-id xrdb -merge ~/.Xresources
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id feh --bg-scale ~/backgrounds/nice-blue-background.png
+#exec --no-startup-id xrdb -merge ~/.Xresources
+#exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # kill any hanging polybar processes
 exec_always killall polybar
@@ -34,8 +34,7 @@ bindsym Ctrl+Shift+Print exec maim --select | xclip -selection clipboard -t imag
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:MesloLGS Nerd Font Mono Bold 14
-
+font pango:Mononoki Nerd Font 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
