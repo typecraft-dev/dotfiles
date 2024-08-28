@@ -26,6 +26,15 @@ return {
       lspconfig.tsserver.setup({
         capabilities = capabilities
       })
+      lspconfig.jsonls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.bashls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.yamlls.setup({
+        capabilities = capabilities
+      })
       lspconfig.solargraph.setup({
         capabilities = capabilities
       })
