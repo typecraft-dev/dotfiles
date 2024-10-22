@@ -2,7 +2,7 @@
 
 * {
     font-family: "MesloLGS Nerd Font Mono Bold";
-    font-size: 14px;
+    font-size: 16px;
     min-height: 0;
     font-weight: bold;
 }
@@ -17,7 +17,7 @@ window#waybar {
 }
 
 #window {
-    margin: 0;
+    margin: 8px;
     padding-left: 8;
     padding-right: 8;
 }
