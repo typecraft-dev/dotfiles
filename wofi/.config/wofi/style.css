@@ -1,6 +1,6 @@
 window {
   margin: 0px;
-  border: 5px solid #2a333d;
+  border: 5px solid #1e1e2e; /* Base */
   background: transparent;
   border-radius: 15px;
 }
@@ -10,25 +10,26 @@ window {
   margin: 4px;
   padding-left: 20px;
   border: none;
-  color: #d2e3f3;
+  color: #cdd6f4; /* Text */
   font-weight: bold;
-  background-color: #1d242c;
-   outline: none;
+  background-color: #313244; /* Surface0 */
+  outline: none;
   border-radius: 15px;
   margin: 10px;
   margin-bottom: 2px;
 }
+
 #input:focus {
-  border: 0px solid #2a333d;
+  border: 0px solid #1e1e2e; /* Base */
   margin-bottom: 0px;
 }
 
 #inner-box {
   margin: 7px;
-  border: 10px solid #2a333d;
-  color: #d2e3f3;
+  border: 10px solid #1e1e2e; /* Base */
+  color: #cdd6f4; /* Text */
   font-weight: bold;
-  background-color: #1d242c;
+  background-color: #313244; /* Surface0 */
   border-radius: 15px;
 }
 
@@ -36,7 +37,7 @@ window {
   margin: 0px;
   border: none;
   border-radius: 15px;
-  background-color: #2a333d;
+  background-color: #1e1e2e; /* Base */
 }
 
 #scroll {
@@ -44,7 +45,6 @@ window {
   border: none;
   border-radius: 15px;
   margin-bottom: 5px;
-  /* background: rgb(255,255,255); */
 }
 
 #img:selected {
@@ -57,7 +57,7 @@ window {
   border: none;
   border-radius: 8px;
   background: transparent;
-  color: #fff;
+  color: #cdd6f4; /* Text */
 }
 
 #entry {
@@ -71,5 +71,5 @@ window {
   margin: 0px 0px;
   border: none;
   border-radius: 8px;
-  background-color: #9ab2ca;
+  background-color: #585b70; /* Surface2 */
 }

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "black": "#1E1E2E",
+    "blue": "#89B4FA",
+    "green": "#A6E3A1",
+    "orange": "#FAB387",
+    "red": "#F38BA8",
+    "white": "#CDD6F4",
+    "yellow": "#F9E2AF",
+    "lavender": "#B4BEFE",
+    "pink": "#F5C2E7"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "green",
+          "background": "transparent",
+          "properties": {
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground" : "yellow",
+          "background": "transparent",
+          "template": "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed)}}*{{ end }}",
+          "properties": {
+            "fetch_status": true
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground_templates": [
+            "{{if gt .Code 0}}red{{end}}",
+            "{{if eq .Code 0}}magenta{{end}}"
+          ],
+          "background": "transparent",
+          "template": " ->"
+        }
+      ]
+    },
+
+
+
+    {
+      "type": "rprompt",
+      "segments": []
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
