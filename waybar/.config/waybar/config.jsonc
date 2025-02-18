@@ -1,8 +1,9 @@
 {
+  "margin": "10 10 0 10",
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "modules-right": ["tray", "custom/clash", "pulseaudio", "battery", "clock"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -22,13 +23,13 @@
     "format-icons": ["", "", "", "", ""],
     "tooltip-format": "{time}"
   },
-  "network": {
-    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
-  },
+  // "network": {
+  //   "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
+  //   "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+  //   "format-linked": "{ifname} (No IP) ",
+  //   "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
+  //   "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+  // },
   "pulseaudio": {
       "format": "{icon}  {volume}%",
       "format-muted": "",
@@ -36,5 +37,15 @@
           "default": ["", "", " "]
       },
       "on-click": "pavucontrol"
+  },
+  "custom/clash": {
+    "exec": "~/.config/waybar/scripts/clash-status.sh",
+    "interval": 5,  // Update every 5 seconds
+    "format": "{} <span size='13000'> clash </span>",  // Use the JSON output from the script
+    "return-type": "json"
+},
+"tray": {
+    "icon-size": 21,
+    "spacing": 10
   }
 }
