@@ -63,7 +63,7 @@ ZSH_THEME="robbyrussell"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=$HOME/.oh-my-zsh-saa
+ZSH_CUSTOM=$HOME/.oh-my-zsh-saa
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -82,12 +82,12 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-#   export NVIM_APPNAME='nvim-saa'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+   export EDITOR='nvim'
+   export NVIM_APPNAME='nvim-saa'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
