@@ -6,7 +6,7 @@ import = [
 TERM = "xterm-256color"
 
 [font]
-size = 14.0
+size = 15.0
 
 [font.bold]
 # family = "MesloLGS Nerd Font Mono"
