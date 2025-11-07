@@ -109,6 +109,16 @@ button:hover {
     border-bottom: 2px solid @green;
 }
 
+#custom-power {
+    border-radius: 5px;
+    margin: 4px 16px 6px 8px ;
+    padding: 0px 8px;
+}
+
+#custom-power:hover {
+    color: @red;
+}
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
     margin-left: 0;
