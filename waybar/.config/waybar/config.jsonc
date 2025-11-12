@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock", "custom/power"],
+  "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery", "clock", "custom/power"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -39,10 +39,22 @@
       },
       "on-click": "pavucontrol"
   },
+  "cpu": {
+    "interval": 5,
+    "format": "<span size='13000' foreground='#f9e2af'>  </span>{usage}%",
+    "tooltip": true,
+    "tooltip-format": "Uso de CPU: {usage}%"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "<span size='13000' foreground='#94e2d5'>M  </span>{used}G/{total}G",
+    "tooltip": true,
+    "tooltip-format": "Memoria usada: {used}G ({percentage}%)"
+  },
   "custom/power": {
-        "tooltip": true,
-        "tooltip-text": "Menú de apagado",
-        "format": "",
-        "on-click": "wlogout"
+	"tooltip": true,
+	"tooltip-text": "Menú de apagado",
+	"format": "",
+	"on-click": "wlogout"
   }
 }
