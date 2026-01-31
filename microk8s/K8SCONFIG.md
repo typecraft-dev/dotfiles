@@ -2,6 +2,11 @@
 > [!IMPORTANT]
 > The entire `microk8s/` folder and its contents only apply to the **nix server** and nothing else.
 
+## File Overview
+- `K8SCONFIG.md`: This file, providing a summary of the cluster state.
+- `kubeconfig.yaml`: The Kubernetes configuration file used to access the cluster.
+- `fullconfig.yaml`: A complete manifest dump of all resources in the cluster.
+
 Generated on: Fri Jan 30 05:26:03 PM PST 2026
 
 ## Namespace: kube-system
