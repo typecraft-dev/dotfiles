@@ -1,0 +1,51 @@
+#!/bin/bash
+# Sync the herdr GUI app's theme with the current Omarchy theme.
+# Writes ~/.config/herdr-app/themes/omarchy.json from the theme's ghostty.conf
+# palette and colors.toml, then tells a running herdr-app to use it.
+
+THEME_DIR="$HOME/.local/state/omarchy/current/theme"
+HERDR_DIR="$HOME/.config/herdr-app"
+
+[[ -f $THEME_DIR/ghostty.conf && -d $HERDR_DIR ]] || exit 0
+
+mkdir -p "$HERDR_DIR/themes"
+
+python3 -I - "$THEME_DIR" "$HERDR_DIR/themes/omarchy.json" <<'EOF' || exit 0
+import json, re, sys, tomllib
+from pathlib import Path
+
+theme_dir, out = Path(sys.argv[1]), Path(sys.argv[2])
+
+ghostty, ansi = {}, {}
+for line in (theme_dir / "ghostty.conf").read_text().splitlines():
+    if m := re.match(r"\s*palette\s*=\s*(\d+)\s*=\s*(#[0-9a-fA-F]{6})", line):
+        ansi[int(m[1])] = m[2]
+    elif m := re.match(r"\s*([\w-]+)\s*=\s*(#[0-9a-fA-F]{6})", line):
+        ghostty[m[1]] = m[2]
+
+colors = {}
+if (theme_dir / "colors.toml").exists():
+    colors = tomllib.loads((theme_dir / "colors.toml").read_text())
+
+if len(ansi) < 16 or "background" not in ghostty:
+    sys.exit(1)
+
+theme = {
+    "background": ghostty["background"],
+    "foreground": ghostty.get("foreground", colors.get("foreground", "#ffffff")),
+    "selection": ghostty.get("selection-background", colors.get("selection", ansi[8])),
+    "cursor": ghostty.get("cursor-color", ghostty.get("foreground", "#ffffff")),
+    "ansi": [ansi[i] for i in range(16)],
+}
+if accent := colors.get("accent"):
+    theme["colors"] = {"accent": accent}
+
+out.write_text(json.dumps(theme, indent=2) + "\n")
+EOF
+
+# Re-select it so herdr picks up the new colors (and the right light/dark half).
+if command -v herdr-app >/dev/null && herdr-app status >/dev/null 2>&1; then
+  herdr-app do app.theme --name omarchy >/dev/null 2>&1
+fi
+
+exit 0

@@ -1,11 +1,18 @@
+onboarding = false
 # herdr configuration
 # Keybindings ported from ~/.tmux.conf
+
+# A voice yells at you when an agent in a background tab needs input.
+# Relative to this file's directory. Re-record by dropping in another mp3.
+[ui.sound]
+enabled = true
+request_path = "sounds/needs-attention.mp3"
 
 [theme]
 # tmux: set -g @plugin 'catppuccin/tmux' (@catppuccin_flavor "mocha")
 name = "catppuccin"
 # Follow the host terminal's light/dark appearance.
-auto_switch = true
+auto_switch = false
 dark_name = "catppuccin"          # mocha
 light_name = "catppuccin-latte"
 

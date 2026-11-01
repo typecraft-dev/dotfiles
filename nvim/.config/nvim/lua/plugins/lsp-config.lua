@@ -1,40 +1,34 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     lazy = false,
     config = function()
       require("mason").setup()
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    -- Installs the servers below and calls vim.lsp.enable() for each one.
+    "mason-org/mason-lspconfig.nvim",
     lazy = false,
+    dependencies = {
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
     opts = {
-      auto_install = true,
+      ensure_installed = {
+        "tailwindcss",
+        "ruby_lsp",
+        "lua_ls",
+      },
     },
   },
   {
+    -- Provides the server configs (cmd, filetypes, root markers) for vim.lsp.config.
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
-      local capabilities = vim.tbl_deep_extend(
-        "force",
-        {},
-        vim.lsp.protocol.make_client_capabilities(),
-        cmp_nvim_lsp.default_capabilities()
-      )
-
-      local lspconfig = require("lspconfig")
-
-      lspconfig.tailwindcss.setup({
-        capabilities = capabilities
-      })
-      lspconfig.ruby_lsp.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
+      vim.lsp.config("*", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
