@@ -1,0 +1,4 @@
+
+# herdr-app writes these editor type files into every mod folder
+herdr-app/**/gpui-kit.d.ts
+herdr-app/**/jsconfig.json
